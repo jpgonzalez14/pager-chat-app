@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from 'react';
 import {Redirect} from "react-router-dom";
 //socket context
 import {socket, SocketContext} from './../context/socket';
@@ -15,7 +15,7 @@ export default function PagerRegister({username}) {
                 <section>
                     <div className="justify-content-middle">
                         <MainCard classNames={"card round-border-8 shadow px-24"}>
-                            <Message name={"JP"} time={"9:30"} messages={["This is a message"]}/>
+                            <Messages/>
                             <ChatMessageForm/>
                         </MainCard>
                     </div>
@@ -23,4 +23,45 @@ export default function PagerRegister({username}) {
             </SocketContext.Provider>
         );
     else return <Redirect from="*" to="/"/>
+};
+
+const Messages = () => {
+
+    const socket = useContext(SocketContext);
+
+    const [connectedUsers, setConnectedUsers] = useState('');
+    const [disconnectedUsers, setDisonnectedUsers] = useState('');
+    const [messages, setMessages] = useState([]);
+
+    useEffect(() => {
+        socket.on('message', message => {
+            setMessages(messages => [...messages, message]);
+        });
+
+        socket.on("user-connected", ({username}) => {
+            setConnectedUsers(username);
+        });
+
+        socket.on('user-disconnected', username => {
+            setDisonnectedUsers(username);
+        });
+
+        return () => socket.disconnect();
+    }, [socket]);
+
+    return (
+        <div>
+            {
+                messages.map((message, i) =>
+                    <Message key={i}
+                             type={message.type}
+                             name={message.username}
+                             time={message.time}
+                             message={message.text}
+                             img={message.url}
+                             alt={message.alt}/>
+                    )
+            }
+        </div>
+    )
 };
