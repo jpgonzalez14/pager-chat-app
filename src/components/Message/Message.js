@@ -10,7 +10,7 @@ export default function Message({name, time, messages}) {
     return (
         <div className="py-24">
             <img
-                src={`https://ui-avatars.com/api/?name=${name}&background=${IMAGE_CONFIG.background}&color=${IMAGE_CONFIG.color}&uppercase=${IMAGE_CONFIG.uppercase}`}
+                src={`${process.env.REACT_APP_AVATAR}/api/?name=${name}&background=${IMAGE_CONFIG.background}&color=${IMAGE_CONFIG.color}&uppercase=${IMAGE_CONFIG.uppercase}`}
                 alt={`${name} avatar`} className="avatar mr-20" height={40}/>
             <p className="username m-0 mb-4">{name} <span className="timestamp">{time}</span></p>
             {
