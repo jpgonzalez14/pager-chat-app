@@ -18,7 +18,7 @@ const reducer = (state, action) => {
                 isLoading: false,
                 isError: false,
                 fulfilled: true,
-                avatar: {...action.payload}
+                avatar: action.payload
             };
 
         case 'FAILURE':

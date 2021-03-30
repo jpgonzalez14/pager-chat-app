@@ -1,15 +1,15 @@
 import React from "react";
 //components
 import MainCard from "../components/Cards/MainCard";
-import Message from "../components/Message/Message";
+import UsernameFrom from "../components/Forms/UsernameFrom";
 
 export default function PagerRegister() {
 
     return (
         <section>
             <div className="justify-content-middle">
-                <MainCard>
-                    <Message name={"JP"}/>
+                <MainCard title={"Join chat"}>
+                    <UsernameFrom/>
                 </MainCard>
             </div>
         </section>
