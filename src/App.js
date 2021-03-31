@@ -1,26 +1,23 @@
-import logo from './assets/img/logo.svg';
-import './assets/styles/App.css';
-import React from "react";
+import React, {useState} from "react";
+import {BrowserRouter, Redirect, Route, Switch, useHistory} from "react-router-dom";
+//styles
+import './assets/styles/App.sass';
+//views
+import PagerChat from "./views/PagerChat";
+import PagerRegister from "./views/PagerRegister";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [username, setUsername] = useState('');
+
+    return (
+        <BrowserRouter>
+            <Switch>
+                <Route path="/chat" exact render={() => <PagerChat username={username}/>}/>
+                <Route path="/" exact render={() => <PagerRegister setUsername={setUsername} useHistory={useHistory}/>}/>
+                <Redirect from="*" to="/"/>
+            </Switch>
+        </BrowserRouter>
+    );
 }
 
 export default App;

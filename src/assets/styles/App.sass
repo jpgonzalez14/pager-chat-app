@@ -1,0 +1,135 @@
+$font-stack: Arial, sans-serif
+$font-p-size: 14px
+$border-element: 1px solid #D6D6D6
+$letter-spacing: 0.2px
+
+div.card
+  width: 600px
+  border: $border-element
+
+div.justify-content-middle
+  display: flex
+  justify-content: center
+  align-items: center
+  vertical-align: middle
+  height: 100vh
+
+h1.title
+  font-family: $font-stack
+  font-weight: normal
+  font-size: 32px
+  letter-spacing: 1px
+
+label
+  font-family: $font-stack
+  font-weight: bold
+  font-size: $font-p-size
+  letter-spacing: $letter-spacing
+
+input
+  background: #FFFFFF
+  border: 1px solid #D6D6D6
+  box-sizing: border-box
+  border-radius: 8px
+  height: 40px
+  width: 100%
+  letter-spacing: $letter-spacing
+
+button.form-button
+  float: right
+  border: none
+  border-radius: 4px
+  padding-right: 35px
+  padding-left: 35px
+  height: 40px
+  background: #FF8200
+  font-family: Arial, sans-serif
+  font-style: normal
+  font-weight: bold
+  font-size: 14px
+  color: #FFFFFF
+  &:hover
+    cursor: pointer
+    background: #ff7300
+
+img.avatar
+  border-radius: 8px
+  float: left
+
+p.username
+  font-family: $font-stack
+  font-weight: bold
+  font-size: $font-p-size
+  letter-spacing: $letter-spacing
+  span.timestamp
+    font-weight: 400
+    color: #727272
+    font-size: 12px
+
+p.message
+  font-family: $font-stack
+  font-weight: 400
+  font-size: $font-p-size
+  letter-spacing: $letter-spacing
+
+input.message-input-button[type="submit"]
+  margin-left: -50px
+  height: 25px
+  width: 40px
+  border: 0
+  color: rgba(0, 0, 0, 0.24)
+  -webkit-appearance: none
+  &:hover
+    cursor: pointer
+
+span.text-danger
+  color: red
+
+.small-text
+  font-family: $font-stack
+  letter-spacing: $letter-spacing
+  font-weight: 400
+  color: #727272
+  font-size: 12px
+
+.m-0
+  margin: 0
+
+.mt-0
+  margin-top: 0
+
+.mb-4
+  margin-bottom: 4px
+
+.mb-8
+  margin-bottom: 8px
+
+.mr-20
+  margin-right: 20px
+
+.mb-40
+  margin-bottom: 40px
+
+.py-24
+  margin-top: 24px
+  margin-bottom: 24px
+
+.p-40
+  padding: 40px
+
+.px-24
+  padding-right: 24px
+  padding-left: 24px
+
+.px-4
+  padding-left: 10px
+  padding-right: 10px
+
+.shadow
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08)
+
+.round-border-8
+  border-radius: 8px
+
+.display-block
+  display: block
