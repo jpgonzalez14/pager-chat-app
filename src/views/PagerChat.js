@@ -40,10 +40,12 @@ const Messages = () => {
 
         socket.on("user-connected", ({username}) => {
             setConnectedUsers(username);
+            console.log(connectedUsers);
         });
 
         socket.on('user-disconnected', username => {
             setDisonnectedUsers(username);
+            console.log(disconnectedUsers);
         });
 
         //return () => socket.disconnect();
