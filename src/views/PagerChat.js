@@ -16,7 +16,7 @@ export default function PagerRegister({username}) {
                     <div className="justify-content-middle">
                         <MainCard classNames={"card round-border-8 shadow px-24"}>
                             <Messages/>
-                            <ChatMessageForm/>
+                            <ChatMessageForm username={username}/>
                         </MainCard>
                     </div>
                 </section>
@@ -46,21 +46,32 @@ const Messages = () => {
             setDisonnectedUsers(username);
         });
 
-        return () => socket.disconnect();
+        //return () => socket.disconnect();
     }, [socket]);
 
     return (
         <div>
             {
-                messages.map((message, i) =>
-                    <Message key={i}
-                             type={message.type}
-                             name={message.username}
-                             time={message.time}
-                             message={message.text}
-                             img={message.url}
-                             alt={message.alt}/>
+                messages.length === 0 ? (
+                    <div className="py-24">
+                        <p className="message m-0 mb-4">
+                            You have no messages.
+                        </p>
+                        <p className="message m-0 mb-4">
+                            <b>Start a conversation. What would you like to say?</b>
+                        </p>
+                    </div>
+                ) : (
+                    messages.map((message, i) =>
+                        <Message key={i}
+                                 type={message.type}
+                                 name={message.username}
+                                 time={message.time}
+                                 message={message.text}
+                                 img={message.url}
+                                 alt={message.alt}/>
                     )
+                )
             }
         </div>
     )
